@@ -8,7 +8,7 @@ BA wants to understand their customers behavior to act proactively in order to a
 
 Dataset
 ---
-For customer sentiment analysis, a web-scarped data from (Skytrax)[https://www.airlinequality.com/] is used to analyze customers feedback about the company.
+For customer sentiment analysis, a web-scarped data from [Skytrax](https://www.airlinequality.com/) is used to analyze customers feedback about the company.
 For the predicitve model, the dataset is provided by British Airways. It contains historical customer booking data.
 
 Installation
