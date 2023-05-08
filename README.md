@@ -1,6 +1,7 @@
 # British Airways Purchase Behavior Analysis
 
 \>>>>>>>> **Check the application: [Here](https://ba-purchase-analysis.onrender.com/)** <<<<<<<<
+---
 
 🚩 Problem Statement
 ---
