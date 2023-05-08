@@ -1,7 +1,8 @@
 # British Airways Purchase Behavior Analysis
 
-\>>>>>>>> **Check the application: [Here](https://ba-purchase-analysis.onrender.com/)** <<<<<<<<
----
+End-to-end project of a web application that predicts whether booking will be submitted by customer for British Airways. It uses a machine learning model that takes into account various features about the airline to make the prediction. The web application was deployed to Render.
+
+### <center>>>>>>>>> **Check the application: [Here](https://ba-purchase-analysis.onrender.com/)** <<<<<<<< </center>
 
 🚩 Problem Statement
 ---
