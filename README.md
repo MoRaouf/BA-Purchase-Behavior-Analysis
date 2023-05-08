@@ -1,5 +1,7 @@
 # British Airways Purchase Behavior Analysis
 
+\>>>>>>>> **Check the application: [Here](https://ba-purchase-analysis.onrender.com/)** <<<<<<<<
+
 🚩 Problem Statement
 ---
 British Airways (BA) is the flag carrier airline of the United Kingdom (UK). Customers who book a flight with BA will experience many interaction points with the BA brand. Understanding a customer's feelings, needs, and feedback is crucial for any business, including BA.
