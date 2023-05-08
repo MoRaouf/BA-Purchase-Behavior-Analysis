@@ -4,8 +4,10 @@ matplotlib
 seaborn
 sklearn
 xgboost
+catboost
 nltk
 wordcloud
 requests
 re
 pathlib
+pyyaml

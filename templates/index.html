@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>British Airways Booking Prediction</title>
+	<style>
+	      body {
+          font-family: Arial, sans-serif;
+          background-color: #a8d4ef;
+        }
+
+        .top-left-link {
+              position: absolute;
+              top: 20px; /* Add some top margin */
+              left: 20px; /* Add some left margin */
+              padding: 10px; /* Add some padding */
+              background-color: #ec6a25; /* Add a background color */
+              border-radius: 5px; /* Add some rounded corners */
+              font-size: 16px; /* Increase the font size */
+              color: black; /* Change the font color */
+              text-decoration: none; /* Remove the underline */
+              font-weight: bold;
+        }
+
+        .profile {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 10%;
+              padding: 20px; /* adds 30 pixels of padding around the image */        
+        }
+
+        .form-box {
+          max-width: 800px;
+          margin: 0 auto;
+          background-color: #79b6dc;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+
+        h1 {
+          text-align: center;
+        }
+
+        h2 {
+          text-align: center;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+
+        input[type="text"], select {
+          padding: 10px;
+          border: 1px solid #494949;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+
+		    input[type="date"], select {
+          padding: 10px;
+          border: 1px solid #494949;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+
+        input[type="submit"] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-top: 10px;
+          display: block;
+          margin: 0 auto;
+        }
+
+        input[type="submit"]:hover {
+          background-color: #45a049;
+        }
+
+        .form-group {
+          display: inline-block;
+          vertical-align: top;
+          margin-right: 20px;
+          width: 30%;
+        }
+
+        .form-group label {
+          margin-bottom: 5px;
+        }
+	</style>
+</head>
+<body>
+	<a href="https://github.com/MoRaouf/BA-Purchase-Behavior-Analysis" class="top-left-link" target="_blank">GitHub Repository Link</a>
+	
+	<h1>British Airways Booking Prediction</h1>
+
+	<div class="form-box">
+	<form method="POST" action="{{ url_for('predict')}}">
+      <div class="form-group">
+        <label for="num_passengers">Number of passengers:</label>
+        <input type="text" id="num_passengers" name="num_passengers" required min="1" max="9" placeholder="Enter (int) number [1 to 9]">
+      </div>
+
+      <div class="form-group">
+        <label for="sales_channel">Sales Channel:</label>
+        <select id="sales_channel" name="sales_channel">
+          <option value="Internet">Internet</option>
+          <option value="Mobile">Mobile</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="trip_type">Trip Type:</label>
+        <select id="trip_type" name="trip_type">
+          <option value="RoundTrip">RoundTrip</option>
+          <option value="OneWay">OneWay</option>
+          <option value="CircleTrip">CircleTrip</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="purchase_lead">Purchase Lead:</label>
+        <input type="text" id="purchase_lead" name="purchase_lead" required min="1" max="867" placeholder="Enter (int) number [1 to 867]">
+      </div>
+
+      <div class="form-group">
+        <label for="length_of_stay">Length of stay in days:</label>
+        <input type="text" id="length_of_stay" name="length_of_stay" required min="1" max="778" placeholder="Enter (int) number [1 to 778]">
+      </div>
+
+      <div class="form-group">
+        <label for="flight_hour">Flight Hour:</label>
+        <input type="text" id="flight_hour" name="flight_hour" required min="1" max="23" placeholder="Enter (int) number [1 to 23]">
+      </div>
+
+      <div class="form-group">
+        <label for="flight_day">Flight Day:</label>
+        <select id="flight_day" name="flight_day">
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="route">Route:</label>
+        <input type="text" id="route" name="route" required placeholder="Enter (text) Route">
+      </div>
+
+      <div class="form-group">
+        <label for="booking_origin">Country:</label>
+        <input type="text" id="booking_origin" name="booking_origin" required placeholder="Enter (text) Country name">
+      </div>
+
+      <div class="form-group">
+        <label for="wants_extra_baggage">Extra Baggage:</label>
+        <input type="text" id="wants_extra_baggage" name="wants_extra_baggage" required placeholder="Enter 0 or 1">
+      </div>
+
+      <div class="form-group">
+        <label for="wants_preferred_seat">Choose preferred seat:</label>
+        <input type="text" id="wants_preferred_seat" name="wants_preferred_seat" required placeholder="Enter 0 or 1">
+      </div>
+
+      <div class="form-group">
+        <label for="wants_in_flight_meals">Have in-flight meal:</label>
+        <input type="text" id="wants_in_flight_meals" name="wants_in_flight_meals" required placeholder="Enter 0 or 1">
+      </div>
+
+      <div class="form-group">
+        <label for="flight_duration">Flight Duration:</label>
+        <input type="text" id="flight_duration" name="flight_duration" required min="4.67" max="9.5" placeholder="Enter (float) number [4.67 to 9.5]">
+      </div>
+
+      <div class="input-group">
+        <input type="submit" value="Predict Booking Status" class="btn">
+      </div>
+
+</form>
+</div>
+
+<div>      
+    <h2>
+		Predicted Booking Status: {{ results }} 
+    </h2>
+</div>
+
+
+</body>
+</html>
