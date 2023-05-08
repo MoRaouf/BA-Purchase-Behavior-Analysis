@@ -29,10 +29,12 @@ For the predicitve model, the dataset is provided by British Airways. It contain
 * Open a web browser and go to http://localhost:5000 to access the application.
 
 * Enter the required input data and click on the "Predicted Booking Status" button to get the predicted booking status for the selected parameters.
+    * If the result is 0, then booking will not be submitted.
+    * If the result is 1, then booking will succeed.
 
-🔗 Deployment to Heroku
+🔗 Deployment to Render
 ---
-The application was deployed to Heroku. [Access it here]().
+The application was deployed to Render. [Access it here](https://ba-purchase-analysis.onrender.com/).
 
 
 📁 Project Structure
